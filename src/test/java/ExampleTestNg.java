@@ -8,37 +8,25 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import page.LoginPage;
+import page.MainPage;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class ExampleTestNg {
+public class ExampleTestNg extends Base {
+
+    LoginPage loginPage = new LoginPage();
+    MainPage mainPage = new MainPage();
 
 
-
-
-    @BeforeMethod
-    public void openBrowser() {
-
-    }
-
-    @Test
+    @Test (priority = 1)
     public void valid_UserCredential() throws InterruptedException {
-
-        DriverHandler.getDriver().myBrowser.get("http://todo.ly/");
-
-        DriverHandler.getDriver().myBrowser.findElement(By.xpath("//*[@id=\"ctl00_MainContent_PanelNotAuth\"]/div[2]/div[1]/div[2]/a/img")).click();
-        DriverHandler.getDriver().myBrowser.findElement(By.xpath("//*[@id=\"ctl00_MainContent_LoginControl1_TextBoxEmail\"]")).sendKeys("usr");
-        DriverHandler.getDriver().myBrowser.findElement(By.xpath("//*[@id=\"ctl00_MainContent_LoginControl1_TextBoxPassword\"]")).sendKeys("pwd");
-        DriverHandler.getDriver().myBrowser.findElement(By.xpath("//*[@id=\"ctl00_MainContent_LoginControl1_ButtonLogin\"]")).click();
-        Thread.sleep(5000);
-    }
-
-
-    @AfterMethod
-    public void closeBrowser() {
-        DriverHandler.getDriver().closeBrowser();
+        /*mainPage.login.Click();
+        loginPage.userTextBox.Set("test");
+        loginPage.pwdTextBox.Set("test");
+        loginPage.loginButton.Click();
+        Thread.sleep(5000);*/
     }
 }

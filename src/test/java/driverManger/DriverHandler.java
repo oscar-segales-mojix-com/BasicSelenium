@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class DriverHandler {
 
     private static DriverHandler ourInstance = null;
-    public static WebDriver myBrowser;
+    private static WebDriver myBrowser;
 
     public static DriverHandler getDriver() {
         if (ourInstance == null)
@@ -34,6 +34,9 @@ public class DriverHandler {
         myBrowser.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
+    public WebDriver myBrowser(){
+        return myBrowser;
+    }
     public void closeBrowser()
     {
         myBrowser.quit();
