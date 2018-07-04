@@ -1,5 +1,6 @@
 package driverManager;
 
+import browser.FactoryBrowser;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -22,18 +23,8 @@ public class DriverManager {
 
     private DriverManager() {
 
-        String PATH_PROJECT = new File(".").getAbsolutePath().replace(".", "");
 
-        System.setProperty("webdriver.chrome.driver", (PATH_PROJECT+"src+test+java+drivers+windows+chromedriver.exe").replace("+",File.separator));
-        Map<String, Object> prefs = new HashMap<String, Object>();
-
-        prefs.put("credentials_enable_service", false);
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--enable-memory-info");
-        options.addArguments("--no-sandbox");
-        options.setExperimentalOption("prefs", prefs);
-
-        mydriver = new ChromeDriver(options);
+        mydriver = FactoryBrowser.make("chrome").create();
         mydriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
