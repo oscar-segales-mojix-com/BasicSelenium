@@ -9,15 +9,39 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+
 }
 
+configurations {
+    agent
+}
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
 
     // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.12.0'
-
+    // https://mvnrepository.com/artifact/io.qameta.allure/allure-testng
+    compile group: 'io.qameta.allure', name: 'allure-testng', version: '2.6.0'
+// https://mvnrepository.com/artifact/org.aspectj/aspectjrt
+    compile group: 'org.aspectj', name: 'aspectjrt', version: '1.9.1'
+    agent "org.aspectj:aspectjweaver:1.9.1"
+    // https://mvnrepository.com/artifact/ru.yandex.qatools.allure/allure-testng-adaptor
+    // compile group: 'ru.yandex.qatools.allure', name: 'allure-testng-adaptor', version: '1.5.4'
 }
 
 
+test{
+    useTestNG()
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+    scanForTestClasses = false
+    include '**/*'
+
+    testLogging {
+        showStandardStreams = true
+
+        // log results to "build/test-results" directory
+        exceptionFormat "full"
+        events "started", "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+}
