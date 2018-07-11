@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class Checkbox extends ControlSelenium {
 
-    public Checkbox(By locator){
-        super(locator);
+    public Checkbox(By locator , String myName){
+        super(locator,myName);
     }
 }

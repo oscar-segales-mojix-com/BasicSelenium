@@ -11,6 +11,6 @@ public class MenuPage {
     public LinkText logoutLink;
 
     public MenuPage(){
-        logoutLink=new LinkText(By.xpath("//*[@id=\"ctl00_HeaderTopControl1_LinkButtonLogout\"]"));
+        logoutLink=new LinkText(By.xpath("//*[@id=\"ctl00_HeaderTopControl1_LinkButtonLogout\"]")," [logout] link on menu page");
     }
 }
