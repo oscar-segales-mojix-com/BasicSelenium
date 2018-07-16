@@ -18,7 +18,7 @@ public class FactoryBrowser {
                 browser= new Safari();
                 break;
             default:
-                browser= new Chrome();
+                browser= new ChromeGrid();
                 break;
         }
         return browser;

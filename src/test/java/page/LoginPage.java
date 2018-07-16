@@ -14,10 +14,10 @@ public class LoginPage {
     public CheckBox rememberCheckBox;
 
     public LoginPage(){
-        userTextBox= new TextBox(By.xpath("//*[@id=\"ctl00_MainContent_LoginControl1_TextBoxEmail\"]"));
-        pwdTextBox= new TextBox(By.xpath("//*[@id=\"ctl00_MainContent_LoginControl1_TextBoxPassword\"]"));
-        loginButton= new Button(By.xpath("//*[@id=\"ctl00_MainContent_LoginControl1_ButtonLogin\"]"));
-        rememberCheckBox= new CheckBox(By.xpath("//*[@id=\"ctl00_MainContent_LoginControl1_CbRemember\"]"));
+        userTextBox= new TextBox(By.xpath("//*[@id=\"ctl00_MainContent_LoginControl1_TextBoxEmail\"]")," [user] field on login page");
+        pwdTextBox= new TextBox(By.xpath("//*[@id=\"ctl00_MainContent_LoginControl1_TextBoxPassword\"]")," [pwd] field on login page");
+        loginButton= new Button(By.xpath("//*[@id=\"ctl00_MainContent_LoginControl1_ButtonLogin\"]")," [login] button on login page");
+        rememberCheckBox= new CheckBox(By.xpath("//*[@id=\"ctl00_MainContent_LoginControl1_CbRemember\"]")," [remember] checkbox on login page");
     }
 
 }

@@ -8,6 +8,6 @@ public class MenuPage {
     public Link logoutLink;
 
     public MenuPage(){
-        logoutLink = new Link(By.xpath("//*[@id=\"ctl00_HeaderTopControl1_LinkButtonLogout\"]"));
+        logoutLink = new Link(By.xpath("//*[@id=\"ctl00_HeaderTopControl1_LinkButtonLogout\"]")," [logout] link on menu page");
     }
 }
