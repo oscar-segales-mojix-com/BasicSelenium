@@ -25,6 +25,7 @@ public class DriverManager {
 
 
         mydriver = FactoryBrowser.make("chrome").create();
+        // implicit - > all controls
         mydriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 

@@ -17,7 +17,7 @@ public class ChromeGrid implements IBrowser {
         capabilities.setCapability("os_version", "7");
 
         String username = "usr";
-        String accessKey = "pwd";
+        String accessKey = "key";
 
         String app = System.getenv("BROWSERSTACK_APP_ID");
         if(app != null && !app.isEmpty()) {

@@ -4,6 +4,9 @@ import driverManager.DriverManager;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Control {
 
@@ -12,6 +15,11 @@ public class Control {
     private String myName;
 
     public void Find(){
+        // explicit -wait -> specific control
+
+       WebDriverWait wait = new WebDriverWait(DriverManager.getInstance().mydriver,15);
+       wait.until(ExpectedConditions.elementToBeClickable(mylocator));
+
        myControl=DriverManager.getInstance().mydriver.findElement(mylocator);
     }
 
@@ -60,5 +68,35 @@ public class Control {
 
     @Step("{0}")
     public void stepLogger(String accion){}
+
+
+
+
+    public void DragAndDrop( By locatorControl){
+        Actions customAction = new Actions(DriverManager.getInstance().mydriver);
+        Find();
+        customAction.dragAndDrop(myControl,
+                DriverManager.getInstance().mydriver.findElement(locatorControl));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

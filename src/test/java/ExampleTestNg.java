@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import page.LoginPage;
 import page.MainPage;
+import page.MenuLeftBarPage;
 import page.MenuPage;
 
 import java.io.File;
@@ -25,6 +26,7 @@ public class ExampleTestNg extends BaseTestCase{
     public MainPage mainPage = new MainPage();
     public LoginPage loginPage = new LoginPage();
     public MenuPage menuPage = new MenuPage();
+    public MenuLeftBarPage menuLeftBarPage = new MenuLeftBarPage();
 
     @Owner("Eynar Pari")
     @Story("Story: ABC")
@@ -37,7 +39,7 @@ public class ExampleTestNg extends BaseTestCase{
 
     public void valid_UserCredential() {
         mainPage.loginLink.click();
-        loginPage.userTextBox.set("user");
+        loginPage.userTextBox.set("eynar.pari@gmail.com");
         loginPage.pwdTextBox.set("pwd");
         loginPage.loginButton.click();
         // Verification
@@ -47,6 +49,12 @@ public class ExampleTestNg extends BaseTestCase{
         String expectedResulst = "Logout";
 
         Assert.assertEquals(actualResult,expectedResulst,"ERROR ! Logout Link is not displayed");
+
+        menuLeftBarPage.addNewProjectLink.click();
+        menuLeftBarPage.nameProjectTextBox.set("PRUEBA1");
+        menuLeftBarPage.addButton.click();
+
+        Assert.assertTrue(menuLeftBarPage.existProjectInTheList("PRUEBA1"),"ERROR ! Project was not created");
 
     }
 }
