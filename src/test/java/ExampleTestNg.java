@@ -21,8 +21,9 @@ public class ExampleTestNg {
     @BeforeMethod
     public void openBrowser() {
         String PATH_PROJECT = new File(".").getAbsolutePath().replace(".", "");
+        System.setProperty("webdriver.chrome.driver", (PATH_PROJECT+"src+test+java+drivers+windows+chromedriver.exe").replace("+",File.separator));
 
-        System.setProperty("webdriver.chrome.driver", PATH_PROJECT+"src\\test\\java\\drivers\\windows\\chromedriver.exe");
+       // System.setProperty("webdriver.chrome.driver", PATH_PROJECT+"src\\test\\java\\drivers\\windows\\chromedriver.exe");
         Map<String, Object> prefs = new HashMap<String, Object>();
 
         prefs.put("credentials_enable_service", false);
