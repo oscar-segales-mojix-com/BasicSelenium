@@ -2,6 +2,8 @@ package control;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class Control {
 
@@ -20,6 +22,10 @@ public abstract class Control {
     }
 
     public void Find(){
+        WebDriverWait wait = new WebDriverWait(browserManager.browserManager.getInstance().getSession(),
+                10);
+        wait.until(ExpectedConditions.elementToBeClickable(this.locator)); //  Explicit wait
+
         myControl=browserManager.browserManager.getInstance().getSession().findElement(this.locator);
     }
 

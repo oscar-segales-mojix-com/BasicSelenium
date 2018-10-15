@@ -25,7 +25,7 @@ public class Chrome implements IBrowser {
         options.setExperimentalOption("prefs", prefs);
 
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); //implicit wait
         return driver;
     }
 }
