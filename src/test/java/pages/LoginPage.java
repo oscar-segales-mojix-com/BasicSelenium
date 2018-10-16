@@ -11,8 +11,10 @@ public class LoginPage {
      public Button loginButton;
 
      public LoginPage(){
-         emailTextBox= new TextBox(By.id("ctl00_MainContent_LoginControl1_TextBoxEmail"));
-         passwordTextBox=new TextBox(By.id("ctl00_MainContent_LoginControl1_TextBoxPassword"));
-         loginButton = new Button(By.xpath("//*[@id=\"ctl00_MainContent_LoginControl1_ButtonLogin\"]"));
+         emailTextBox= new TextBox(By.id("ctl00_MainContent_LoginControl1_TextBoxEmail"),
+                 "[email] TextBox in LoginPAge");
+         passwordTextBox=new TextBox(By.id("ctl00_MainContent_LoginControl1_TextBoxPassword"),"[pwd] TextBox in LoginPAge");
+         loginButton = new Button(By.xpath("//*[@id=\"ctl00_MainContent_LoginControl1_ButtonLogin\"]"),
+                 "[login] Button in LoginPAge");
      }
 }

@@ -2,8 +2,8 @@ package control;
 
 import org.openqa.selenium.By;
 
-public class ComboBox extends Control {
-    public ComboBox(By locator,String myInfo) {
+public class Link extends Control{
+    public Link(By locator,String myInfo) {
         super(locator,myInfo);
     }
 }
