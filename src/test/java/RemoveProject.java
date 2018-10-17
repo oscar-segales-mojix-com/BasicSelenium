@@ -31,7 +31,7 @@ public class RemoveProject extends TestBase{
         browserManager.browserManager.getInstance().getSession().switchTo().alert().accept();
         this.waitTimeSeconds(2);
 
-        Assert.assertTrue("Projecto no fue borrado",leftMenuPage.isDisplayedProj(expectedResultName));
+        Assert.assertFalse("Projecto no fue borrado",leftMenuPage.isDisplayedProj(expectedResultName));
     }
 
 }
